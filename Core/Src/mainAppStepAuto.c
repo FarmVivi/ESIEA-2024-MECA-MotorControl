@@ -15,22 +15,22 @@ int16_t g_data1Cnt = 0;
 int16_t g_data1[MAX_DATA1 + 1];
 
 
- int8_t Ad = 1;
- int l_motor;
- int l_epsilon;
+int8_t Ad = 1; // Facteur de proportionnalité du régulateur
+int l_motor;   // Commande moteur
+int l_epsilon; // Erreur entre la référence et la mesure
 
 //============================================================
-//            PID controller
+//            PID controller (Régulateur proportionnel)
 //============================================================
 int controlLoop(int p_refValueIn,int p_motorOut)
 {
 
-  l_epsilon = (p_refValueIn - p_motorOut);
-  l_motor = l_epsilon * Ad ;
+	l_epsilon = (p_refValueIn - p_motorOut); // Calcul de l'erreur
+	l_motor = l_epsilon * Ad; // Application du gain proportionnel
 
 
 
-  return l_motor;
+	return l_motor; // Retourne la commande moteur calculée
 }
 //============================================================
 
@@ -69,12 +69,12 @@ void onNewFrameFloat(uint8_t p_frameCodet, float *p_float, int p_dataCount)
 //called once every 10 ms
 void mainApp10ms(void)
 {
-
-  static int l_refValue = 2048;
+  static int l_refValue = 2048; // Valeur de consigne initiale
   static int l_stepDelay=0;
   int l_motor = 0;
   int l_adcValue;
 
+  // Gestion de l'alternance de la consigne moteur
   //Auto step
   l_stepDelay++;
   if (l_stepDelay==400) //every 4s
@@ -100,28 +100,31 @@ void mainApp10ms(void)
   //(1 LSB=3.3V/4096)
   l_adcValue = readADC();
 
+  // Gestion de la séquence de step moteur
   //l_motor step
   if (g_startStep == 1)
   {
-    l_refValue = g_motorStep;
+    l_refValue = g_motorStep; // Mise à jour de la consigne
     g_data1Cnt = 0;
     g_startStep++;
   }
   if (g_startStep == 2)
   {
-    g_data1[g_data1Cnt] = l_adcValue;
+    g_data1[g_data1Cnt] = l_adcValue; // Enregistrement de la valeur ADC
     g_data1Cnt++;
     if (g_data1Cnt >= MAX_DATA1)
     {
       g_startStep = 0;
-      writeFrameShort('A', g_data1, g_data1Cnt);
+      writeFrameShort('A', g_data1, g_data1Cnt); // Envoi des données
       g_startStep = 0;
     }
 
   }
 
+  // Calcul de la commande moteur
   //Calculate new l_motor voltage
   l_motor=controlLoop(l_refValue,l_adcValue);
+  // Application de la tension moteur
     //set motor voltage
   setMotor(l_motor);
 }
