@@ -1,0 +1,9 @@
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_adc.h:2470:22:LL_ADC_REG_SetSequencerChannels	1
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_adc.h:3484:22:LL_ADC_REG_StartConversion	1
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_adc.h:3560:26:LL_ADC_REG_ReadConversionData12	1
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_adc.h:3638:26:LL_ADC_IsActiveFlag_EOC	1
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_tim.h:1687:22:LL_TIM_OC_SetCompareCH1	1
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_ll_tim.h:1701:22:LL_TIM_OC_SetCompareCH2	1
+../Core/Src/motorControl.c:16:10:readADC	2
+../Core/Src/motorControl.c:36:6:setMotor	5
+../Core/Src/motorControl.c:72:6:protocolMain	2

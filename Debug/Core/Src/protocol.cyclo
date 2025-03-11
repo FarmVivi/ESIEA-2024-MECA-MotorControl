@@ -1,0 +1,12 @@
+../Core/Src/protocol.c:61:6:writeByte	1
+../Core/Src/protocol.c:67:6:writeShort	1
+../Core/Src/protocol.c:75:6:writeInt	1
+../Core/Src/protocol.c:85:6:writeFloat	1
+../Core/Src/protocol.c:95:6:writeFrameStart	1
+../Core/Src/protocol.c:100:6:writeFrameStop	1
+../Core/Src/protocol.c:106:6:writeFrame	1
+../Core/Src/protocol.c:114:6:writeFrameByte	2
+../Core/Src/protocol.c:127:6:writeFrameShort	2
+../Core/Src/protocol.c:140:6:writeFrameInt	2
+../Core/Src/protocol.c:153:6:writeFrameFloat	2
+../Core/Src/protocol.c:178:6:onReceiveCar	35
