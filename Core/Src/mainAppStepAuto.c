@@ -15,10 +15,8 @@ int16_t g_data1Cnt = 0;
 int16_t g_data1[MAX_DATA1 + 1];
 
 
-int8_t Ad = 2; // Facteur de proportionnalité du régulateur
-int8_t Ab = 1; // Facteur de la chaîne de retour
-float l_CeMoins1 = 0;
-float l_CsMoins1 = 0;
+float Ad = 0.1514; // Facteur de proportionnalité du régulateur
+float Ab = 3.0388; // Facteur de la chaîne de retour
 
 //============================================================
 //            PID controller
@@ -32,13 +30,7 @@ int controlLoop(int p_refValueIn,int p_motorOut)
 	float l_ADe = l_epsilon;
 	float l_ADs = l_ADe * Ad;
 
-	// Correcteur ventrale
-	float l_Ce = l_ADs;
-	float l_Cs = 2.384 * l_Ce - 2.192 * l_CeMoins1 + 0.8077 * l_CsMoins1;
-	l_CeMoins1 = l_Ce;
-	l_CsMoins1 = l_Cs;
-
-	return l_Cs; // Retourne la commande moteur calculée
+	return l_ADs; // Retourne la commande moteur calculée
 }
 //============================================================
 
