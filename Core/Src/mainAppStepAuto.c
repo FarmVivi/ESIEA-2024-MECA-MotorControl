@@ -34,7 +34,7 @@ int controlLoop(int p_refValueIn,int p_motorOut)
 
 	// Correcteur ventrale
 	float l_Ce = l_ADs;
-	float l_Cs = 3.07 * l_Ce - 2.853 * l_CeMoins1 + 0.7826 * l_CsMoins1;
+	float l_Cs = 2.384 * l_Ce - 2.192 * l_CeMoins1 + 0.8077 * l_CsMoins1;
 	l_CeMoins1 = l_Ce;
 	l_CsMoins1 = l_Cs;
 

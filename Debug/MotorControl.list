@@ -5641,7 +5641,7 @@ int controlLoop(int p_refValueIn,int p_motorOut)
 	float l_Ce = l_ADs;
  80027da:	697b      	ldr	r3, [r7, #20]
  80027dc:	613b      	str	r3, [r7, #16]
-	float l_Cs = 3.07 * l_Ce - 2.853 * l_CeMoins1 + 0.7826 * l_CsMoins1;
+	float l_Cs = 2.384 * l_Ce - 2.192 * l_CeMoins1 + 0.8077 * l_CsMoins1;
  80027de:	6938      	ldr	r0, [r7, #16]
  80027e0:	f7ff f99e 	bl	8001b20 <__aeabi_f2d>
  80027e4:	4a21      	ldr	r2, [pc, #132]	@ (800286c <controlLoop+0xd4>)
@@ -5706,14 +5706,14 @@ int controlLoop(int p_refValueIn,int p_motorOut)
  8002862:	bdb0      	pop	{r4, r5, r7, pc}
  8002864:	20000001 	.word	0x20000001
  8002868:	20000000 	.word	0x20000000
- 800286c:	28f5c28f 	.word	0x28f5c28f
- 8002870:	40088f5c 	.word	0x40088f5c
+ 800286c:	978d4fdf 	.word	0x978d4fdf
+ 8002870:	4003126e 	.word	0x4003126e
  8002874:	20000220 	.word	0x20000220
- 8002878:	a9fbe76d 	.word	0xa9fbe76d
- 800287c:	4006d2f1 	.word	0x4006d2f1
+ 8002878:	4bc6a7f0 	.word	0x4bc6a7f0
+ 800287c:	40018937 	.word	0x40018937
  8002880:	20000224 	.word	0x20000224
- 8002884:	27bb2fec 	.word	0x27bb2fec
- 8002888:	3fe90b0f 	.word	0x3fe90b0f
+ 8002884:	ab9f559b 	.word	0xab9f559b
+ 8002888:	3fe9d8ad 	.word	0x3fe9d8ad
 
 0800288c <onNewFrameCommand>:
 
