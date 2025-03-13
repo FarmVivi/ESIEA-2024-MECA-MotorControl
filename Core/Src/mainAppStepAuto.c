@@ -15,22 +15,30 @@ int16_t g_data1Cnt = 0;
 int16_t g_data1[MAX_DATA1 + 1];
 
 
-int8_t Ad = 1; // Facteur de proportionnalité du régulateur
-int l_motor;   // Commande moteur
-int l_epsilon; // Erreur entre la référence et la mesure
+int8_t Ad = 2; // Facteur de proportionnalité du régulateur
+int8_t Ab = 1; // Facteur de la chaîne de retour
+float l_CeMoins1 = 0;
+float l_CsMoins1 = 0;
 
 //============================================================
-//            PID controller (Régulateur proportionnel)
+//            PID controller
 //============================================================
 int controlLoop(int p_refValueIn,int p_motorOut)
 {
+	// Soustracteur
+	float l_epsilon = (p_refValueIn - p_motorOut * Ab);
 
-	l_epsilon = (p_refValueIn - p_motorOut); // Calcul de l'erreur
-	l_motor = l_epsilon * Ad; // Application du gain proportionnel
+	// Gain proportionnel
+	float l_ADe = l_epsilon;
+	float l_ADs = l_ADe * Ad;
 
+	// Correcteur ventrale
+	float l_Ce = l_ADs;
+	float l_Cs = 3.07 * l_Ce - 2.853 * l_CeMoins1 + 0.7826 * l_CsMoins1;
+	l_CeMoins1 = l_Ce;
+	l_CsMoins1 = l_Cs;
 
-
-	return l_motor; // Retourne la commande moteur calculée
+	return l_Cs; // Retourne la commande moteur calculée
 }
 //============================================================
 
