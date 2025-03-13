@@ -3332,7 +3332,6 @@ int controlLoop(int p_refValueIn,int p_motorOut)
  80015a4:	1c03      	adds	r3, r0, #0
  80015a6:	60fb      	str	r3, [r7, #12]
 
-	//return l_Cs; // Retourne la commande moteur calculée
 	return l_ADs; // Retourne la commande moteur calculée
  80015a8:	68f8      	ldr	r0, [r7, #12]
  80015aa:	f7ff f9f7 	bl	800099c <__aeabi_f2iz>

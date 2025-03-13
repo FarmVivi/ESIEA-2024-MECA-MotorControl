@@ -15,7 +15,7 @@ int16_t g_data1Cnt = 0;
 int16_t g_data1[MAX_DATA1 + 1];
 
 
-float Ad = 0.1514; // Facteur de proportionnalité du régulateur
+float Ad = 0.0513; // Facteur de proportionnalité du régulateur
 float Ab = 3.0388; // Facteur de la chaîne de retour
 
 //============================================================
